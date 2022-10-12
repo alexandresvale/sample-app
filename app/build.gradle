@@ -21,8 +21,13 @@ android {
 
     buildTypes {
         release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile(
+                    'proguard-android-optimize.txt'
+            ), 'proguard-rules.pro'
+        }
+        debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
@@ -35,12 +40,17 @@ android {
 }
 
 dependencies {
+    implementation project(":domain")
 
     implementation Dependencies.androidCore
     implementation Dependencies.androidAppCompat
     implementation Dependencies.material
     implementation Dependencies.constraintLayout
+    implementation Dependencies.koinAndroid
+
     testImplementation DependenciesTest.junit
+    testImplementation DependenciesTest.koinAndroid
+
     androidTestImplementation DependenciesAndroidTest.testExt
     androidTestImplementation DependenciesAndroidTest.espressoCore
 

@@ -4,6 +4,7 @@ object Version {
     const val androidAppCompat = "1.5.1"
     const val material = "1.6.1"
     const val constraintLayout = "2.1.4"
+    const val koinAndroid = "3.2.2"
 
     //Test
     const val junit = "4.13.2"
@@ -23,6 +24,8 @@ object Dependencies {
     const val androidAppCompat = "androidx.appcompat:appcompat:${Version.androidAppCompat}"
     const val material = "com.google.android.material:material:${Version.material}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Version.constraintLayout}"
+    const val koinAndroid = "io.insert-koin:koin-android:${Version.koinAndroid}"
+    const val koinCore = "io.insert-koin:koin-core:${Version.koinAndroid}"
 }
 
 /**
@@ -31,6 +34,7 @@ object Dependencies {
  */
 object DependenciesTest {
     const val junit = "junit:junit:${Version.junit}"
+    const val koinAndroid = "io.insert-koin:koin-test:${Version.koinAndroid}"
 }
 
 /**
