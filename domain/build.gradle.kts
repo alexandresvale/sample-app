@@ -10,4 +10,6 @@ java {
 
 dependencies {
     implementation(Dependencies.koinCore)
+    implementation(Dependencies.rxKotlin)
+    implementation(Dependencies.rxJava)
 }

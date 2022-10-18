@@ -1,7 +1,8 @@
 package com.alexandresvale.domain.repository
 
 import com.alexandresvale.domain.model.Pokemon
+import io.reactivex.Single
 
 interface PokemonRepository {
-    fun fetchPokemons(forceUpdate: Boolean) : List<Pokemon>
+    fun getPokemons(forceUpdate: Boolean) : Single<List<Pokemon>>
 }
