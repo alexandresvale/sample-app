@@ -1,11 +1,11 @@
 package com.alexandresvale.domain.di
 
-import com.alexandresvale.domain.useCase.FetchPokemonUseCase
+import com.alexandresvale.domain.useCase.GetPokemonUseCase
 import org.koin.dsl.module
 
 val useCaseModule = module {
     factory {
-        FetchPokemonUseCase(
+        GetPokemonUseCase(
             repository = get()
         )
     }

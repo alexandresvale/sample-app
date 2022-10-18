@@ -4,11 +4,11 @@ import com.alexandresvale.domain.repository.PokemonRepository
 import com.alexandresvale.domain.model.Pokemon
 import io.reactivex.Single
 
-class FetchPokemonUseCase(
+class GetPokemonUseCase(
     private val repository: PokemonRepository
 ) {
 
-    fun invoke() : Single<List<Pokemon>> {
+    fun invoke(forceUpdate: Boolean) : Single<List<Pokemon>> {
         return repository.getPokemons(forceUpdate = false)
     }
 
