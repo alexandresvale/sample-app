@@ -1,22 +1,22 @@
-import org.apache.tools.ant.taskdefs.optional.depend.Depend
-
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 android {
-    namespace 'com.alexandresvale.sampleapp'
-    compileSdk 33
+    namespace ConfigureData.namespace
+    compileSdk ConfigureData.compileSdk
 
     defaultConfig {
-        applicationId "com.alexandresvale.sampleapp"
-        minSdk 21
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        applicationId ConfigureData.applicationId
+        minSdk ConfigureData.minSdk
+        targetSdk ConfigureData.targetSdk
+        versionCode ConfigureData.versionCode
+        versionName ConfigureData.versionName
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner ConfigureData.testInstrumentationRunner
     }
 
     buildTypes {
@@ -30,12 +30,21 @@ android {
             minifyEnabled false
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/atomicfu.kotlin_module'
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    dataBinding {
+        enable true
     }
 }
 
@@ -46,12 +55,14 @@ dependencies {
     implementation Dependencies.androidAppCompat
     implementation Dependencies.material
     implementation Dependencies.constraintLayout
+
     implementation Dependencies.koinAndroid
 
-    testImplementation DependenciesTest.junit
-    testImplementation DependenciesTest.koinAndroid
+    testImplementation Dependencies.junit
+    testImplementation Dependencies.koinTest
 
-    androidTestImplementation DependenciesAndroidTest.testExt
-    androidTestImplementation DependenciesAndroidTest.espressoCore
+    androidTestImplementation Dependencies.testExt
+    androidTestImplementation Dependencies.espressoCore
+    androidTestImplementation Dependencies.runner
 
 }
